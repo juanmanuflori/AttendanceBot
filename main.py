@@ -168,25 +168,6 @@ async def ViewAttendance(ctx):
     await ctx.send(f"📋 **{attendance_event_name} Attendance List:**",
                    file=discord.File(filename))
 
-
-from flask import Flask
-import threading
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def home():
-    return "Bot is running!"
-
-
-def run():
-    app.run(host="0.0.0.0", port=8080)
-
-
-# Start the web server in a separate thread
-threading.Thread(target=run).start()
-
 # Run bot
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 bot.run(TOKEN)
