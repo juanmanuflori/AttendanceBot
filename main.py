@@ -24,6 +24,7 @@ intents = discord.Intents.default()
 intents.messages = True
 intents.message_content = True
 
+
 # Create bot instance
 bot = commands.Bot(command_prefix="!", intents=intents)
 
