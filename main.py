@@ -167,6 +167,21 @@ async def ViewAttendance(ctx):
     # Send the CSV file to Discord
     await ctx.send(f"📋 **{attendance_event_name} Attendance List:**",
                    file=discord.File(filename))
+import os
+import threading
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+def run():
+    port = int(os.environ.get("PORT", 8080))  # Use Railway's default port
+    app.run(host="0.0.0.0", port=port)
+
+threading.Thread(target=run).start()
 
 # Run bot
 TOKEN = os.getenv("DISCORD_BOT_TOKEN")
